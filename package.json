@@ -1,0 +1,42 @@
+{
+    "name": "sonarqube-compare",
+    "version": "1.0.0",
+    "description": "With sonarqube-compare, you can compare your new branch against the target branch's coverage and issues in detail.",
+    "main": "lib/src/index.js",
+    "types": "lib/src/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "start": "ts-node --esm ./src/index.ts"
+    },
+    "bin": {
+        "sonarqube-compare": "./bin/sonarqubeCompare.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AlvinLaiPro/sonarqube-compare.git"
+    },
+    "keywords": [
+        "sonarqube",
+        "compare",
+        "coverage",
+        "line coverage"
+    ],
+    "author": "AlvinLaiPro",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/AlvinLaiPro/sonarqube-compare/issues"
+    },
+    "homepage": "https://github.com/AlvinLaiPro/sonarqube-compare#readme",
+    "devDependencies": {
+        "@types/jsdom": "21.1.6",
+        "@types/node": "20.9.5",
+        "@types/node-fetch": "2.6.9",
+        "ts-node": "10.9.1"
+    },
+    "dependencies": {
+        "jsdom": "23.0.0",
+        "node-fetch": "2.7.0",
+        "table": "6.8.1",
+        "yargs": "17.7.2"
+    }
+}
