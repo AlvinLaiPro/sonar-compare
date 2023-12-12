@@ -1,6 +1,6 @@
 {
     "name": "sonarqube-compare",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "With sonarqube-compare, you can compare your new branch against the target branch's coverage and issues in detail.",
     "main": "lib/src/index.js",
     "types": "lib/src/index.d.ts",
@@ -30,13 +30,13 @@
     "devDependencies": {
         "@types/jsdom": "21.1.6",
         "@types/node": "20.9.5",
-        "@types/node-fetch": "2.6.9",
-        "ts-node": "10.9.1"
+        "@types/node-fetch": "2.6.9"
     },
     "dependencies": {
         "jsdom": "23.0.0",
         "node-fetch": "2.7.0",
         "table": "6.8.1",
+        "ts-node": "10.9.1",
         "yargs": "17.7.2"
     }
 }
