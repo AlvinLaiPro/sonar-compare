@@ -9,6 +9,7 @@ import {
     Source,
     SourceRequestParams,
     SourceResponse,
+    TableCell,
     issueRequestParams,
 } from '../types';
 import { JSDOM } from 'jsdom';
@@ -168,11 +169,10 @@ function removeTags(code: string) {
     return code;
 }
 
-function printCoverageTable(data: (string | number | boolean)[][][], metrics: Metric[]) {
+function printCoverageTable(data: TableCell[][][], metrics: Metric[]) {
     if (data.length === 0) {
         return '';
     }
-
     let offset = 2;
     const config: {
         columns: { alignment: Alignment; width?: number, truncate?: number }[];
@@ -204,7 +204,7 @@ function printCoverageTable(data: (string | number | boolean)[][][], metrics: Me
     return table(flatData, config);
 }
 
-function printIssueTable(data: (string | number | boolean)[][][]) {
+function printIssueTable(data: TableCell[][][]) {
     if (data.length === 0) {
         return '';
     }
@@ -248,7 +248,7 @@ function getIssuePrintData(issues: Issue[]) {
             acc.push([item]);
         }
         return acc;
-    }, [] as (string | number)[][][]);
+    }, [] as TableCell[][][]);
 }
 
 function getCoveragePrintData({ match, rest, key, metrics }: { match: Source[]; rest: Source[]; key: string; metrics: Metric[] }) {
@@ -312,7 +312,6 @@ async function compareCoverageMetrics({ sourceBranch, targetBranch, component, t
                 token,
                 host
             });
-
             return compareSource(source, target, key, metrics);
         })
     ).then(res => printCoverageTable(res, metrics));
@@ -390,7 +389,6 @@ function compareSource(source: Source[], target: Source[], key: string, metrics:
             rest: [],
         } as { match: Source[]; rest: Source[] }
     );
-
     return getCoveragePrintData({ match, rest, key, metrics });
 }
 

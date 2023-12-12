@@ -5,7 +5,6 @@ const METRICS = ['uncovered_lines', 'uncovered_conditions', 'bugs', 'code_smells
 
 (() => {
     const yargs = require('yargs');
-
     const options = {
         sourceBranch: {
             alias: 's',
@@ -38,10 +37,6 @@ const METRICS = ['uncovered_lines', 'uncovered_conditions', 'bugs', 'code_smells
             type: 'array',
             choices: METRICS,
             default: ['uncovered_lines', 'uncovered_conditions'],
-            completion: (current, argv, done) => {
-                const suggestions = METRICS.filter((c) => c.startsWith(current));
-                done(null, suggestions);
-            },
         },
     };
     const args = yargs
@@ -49,9 +44,9 @@ const METRICS = ['uncovered_lines', 'uncovered_conditions', 'bugs', 'code_smells
         .strict()
         .wrap(yargs.terminalWidth())
         .completion()
-        .usage('Uasge: $0 -t targetBranch -s sourceBranch -k token -h host -c component')
+        .usage('Usage: $0 -t targetBranch -s sourceBranch -k token -h host -c component')
         .demandOption(Object.keys(options))
-        .help('h').argv;
+        .argv;
 
     const { sourceBranch, targetBranch, token, component, host, metrics } = args;
 

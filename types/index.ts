@@ -88,3 +88,5 @@ export type ComponentTreeRequestParams = Pick<CompareOptions, 'token' |'componen
 export type issueRequestParams = Pick<CompareOptions, 'token' |'component' | 'host'> & {branch: string};
 
 export type SourceRequestParams = Pick<CompareOptions, 'token' | 'host'> & {branch: string; key: string};
+
+export type TableCell = string | number | boolean;
