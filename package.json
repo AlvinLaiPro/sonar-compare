@@ -1,6 +1,6 @@
 {
     "name": "sonarqube-compare",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "With sonarqube-compare, you can compare your new branch against the target branch's coverage and issues in detail.",
     "main": "lib/src/index.js",
     "types": "lib/src/index.d.ts",

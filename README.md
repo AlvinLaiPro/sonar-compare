@@ -15,7 +15,7 @@ npm install sonarqube-compare -g
 
 ## Usage
 
-To generate the comparison of your code coverage between two branchs, you need to provide these parameters for the `sonarqubeCompare` function: `sourceBranch`, `targetBranch`, `component`, `token`, `metrics`, `sourceLineUrl` and `componentTreeUrl`. The `metrics` parameter is optional, it would be set to `['uncovered_lines', 'uncovered_conditions']` if you don't provide it.
+To generate the comparison of your code coverage between two branchs, you need to provide these parameters for the `sonarqubeCompare` function: `sourceBranch`, `targetBranch`, `component`, `token`, `host` and `metrics`. The `metrics` parameter is optional, it would be set to `['uncovered_lines', 'uncovered_conditions']` if you don't provide it.
 
 ```js
 const {sonarqubeCompare} = require('sonarqube-compare');
@@ -32,4 +32,18 @@ Command line support is also available. For command line use, we recommend insta
 
 ```bash
 sonarqube-compare -s develop -t master -c your_project_key -k token -h https://sonarqube.example.com -m uncovered_lines uncovered_conditions
+```
+## Output
+```
+╔═════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                                              Test Coverage Report                                                               ║
+╟──────────────────────┬───────┬────────────────────────────────────────────────────┬────────────┬─────────────────┬──────────────────────────────╢
+║         Key          │ Line  │ Code                                               │  New code  │ Uncovered Lines │ Uncovered Conditions (Fully) ║
+╟──────────────────────┼───────┼────────────────────────────────────────────────────┼────────────┼─────────────────┼──────────────────────────────╢
+║                      │  362  │ if (NotCoveredThisConditionFully) {                │   false    │                 │             true             ║
+║                      ├───────┼────────────────────────────────────────────────────┼────────────┼─────────────────┼──────────────────────────────╢
+║ your_project_key:src │  366  │ if (NotCoveredThisLine == true) {                  │   false    │      true       │                              ║
+║ /common/fileName.ts  ├───────┼────────────────────────────────────────────────────┼────────────┼─────────────────┼──────────────────────────────╢
+║                      │  371  │ return defaultMessage;                             │   false    │      true       │                              ║
+╚══════════════════════╧═══════╧════════════════════════════════════════════════════╧════════════╧═════════════════╧══════════════════════════════╝
 ```
