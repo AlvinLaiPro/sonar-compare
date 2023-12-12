@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 require('ts-node/register');
-const { sonarqubeCompare } = require('../src/index.ts');
+const { sonarqubeCompare } = require('../lib/src/index.js');
 const METRICS = ['uncovered_lines', 'uncovered_conditions', 'bugs', 'code_smells', 'VULNERABILITY'];
 
 (() => {
