@@ -406,9 +406,10 @@ function compareSource(source: Source[], target: Source[], key: string, metrics:
  * sonarqubeCompare({
  *  sourceBranch: 'develop',
  *  targetBranch: 'master',
- * metrics: ['uncovered_lines', 'branch_coverage'],
- * component: 'com.example:example',
- * host: 'https://sonarqube.example.com',
+ *  metrics: ['uncovered_lines', 'branch_coverage'],
+ *  token: 'token',
+ *  component: 'com.example:example',
+ *  host: 'https://sonarqube.example.com',
  * })
  */
 export async function sonarqubeCompare({

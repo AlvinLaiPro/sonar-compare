@@ -25,6 +25,7 @@ sonarqubeCompare({
     targetBranch: 'master',
     metrics: ['uncovered_lines', 'uncovered_conditions'],
     component: 'your_project_key',
+    token: 'token',
     host: 'https://sonarqube.example.com',
 }).then(s => console.log(s));
 ```
