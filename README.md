@@ -1,6 +1,8 @@
 # sonarqube-compare
 With sonarqube-compare, you can compare your new branch against the target branch's coverage and issues in detail.
 
+**Note: `sonarqube-compare` doesn't generate test coverage reports; it uses the sonarqube server API to obtain them.**
+
 ## Installation
 
 sonarqube-compare runs on Node.js and is available as a NPM package.
